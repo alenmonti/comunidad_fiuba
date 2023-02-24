@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fiuba Resumenes</title>
+</head>
+<body>
+    <nav class="menu">
+        <p class="menu-titulo">Filtros</p>
+        <ul class="menu-lista">
+            <li class="dropdown">
+                <p>Tipo de archivo</p>
+                <ul class="submenu">
+                    <li><input type="radio" name="tipo"> Parcial</li>
+                    <li><input type="radio" name="tipo"> Final</li>
+                    <li><input type="radio" name="tipo"> Resumen</li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <p>Materia</p>
+                <ul class="submenu">
+                    <li><input type="radio" name="materia"> Analisis</li>
+                    <li><input type="radio" name="materia"> Fisica</li>
+                    <li><input type="radio" name="materia"> Ingles</li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <p>Año</p>
+                <ul class="submenu">
+                    <li><input type="radio" name="año"> 2023</li>
+                    <li><input type="radio" name="año"> 2022</li>
+                    <li><input type="radio" name="año"> 2021</li>
+                </ul>
+            </li>
+        </ul>
+        <input type="submit" value="aplicar filtros" name="filtros" class="aplicar-filtros">
+        <hr>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload File" name="submit">
+        </form>
+    </nav>
+    <main class="main">
+        <h1>Archivos Fiuba</h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  .menu-item a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .dropdown .submenu {
+    display: none;
+  }
+  
+  .dropdown.active .submenu {
+    display: block;
+  }
+  
+  .submenu li {
+    margin-bottom: 5px;
+  }
+  
+  main {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
