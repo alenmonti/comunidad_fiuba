@@ -2,13 +2,17 @@
 
 :root {
     --celeste:#538cc6;
+    --blanco: white;
 }
 
 * {
     box-sizing: border-box;
     font-family:'Poppins', sans-serif;
     margin: 0;
+}
 
+body {
+    background: linear-gradient(62deg, #3a3d40, #181719);;
 }
 
 .menu {
@@ -19,13 +23,17 @@
     height: 100vh;
     border-right: 2px solid rgba(0, 22, 22, 0.4);
     padding:0 5px 0 5px;
-    
+    background-color: #00504bff;
+    background: linear-gradient(62deg, #00504bff, rgb(0, 71, 67));
+    color: var(--blanco);
+    border-radius: 0 10px 10px 0;
 }
 
 .menu ul {
     list-style: none;
     padding-left: 0;
     width: 100%;
+    background-color: rgb(0, 92, 89);
 }
 
 .submenu {
@@ -34,7 +42,6 @@
 
 .submenu li {
     margin-left: 20px;
-    border-left: #4d4e53;
 }
 
 .dropdown:hover .submenu {
@@ -50,7 +57,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    border: 1px solid #4d4e53;
+    border: 1px solid var(--blanco);
     border-radius: 5px;
     padding: 10px;
 }
@@ -62,25 +69,59 @@
     margin-top: 20px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
     margin: 20px;
+}
+
+.main-titulo {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+.subrrayado {
+    border-bottom: 1px solid var(--blanco);
+    width: 50%;
+    margin: 0 auto 0 auto;
 }
 
 main {
     margin-left: 200px;
     padding: 0 10px;
+    color: var(--blanco);
 }
 
 .archivos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     width: 100%;
-    gap: 5px;
+    gap: 25px;
 }
 
 .archivo {
     border-radius: 5px;
-    border: 1px solid black;
-    height: 200px;
+    width: 100%;
+    height: 250px;
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+
+.archivo p {
+    display: flex;
+    border: 1px solid white;
+    border-radius: 0 0 5px 5px;
+    margin-top: -7px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+
+.archivo .embed {
+    height: 80%;
+    width: 100%;
 }
