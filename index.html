@@ -48,7 +48,8 @@
             </li>
         </ul>
         <input type="submit" value="aplicar filtros" name="filtros" class="aplicar-filtros">
-        <a class="subir-archivo" href="https://script.google.com/a/macros/fi.uba.ar/s/AKfycbyRPgOvZnvg3MEqG-cCYGE1e7znSDE8KpMgJsAvyAUMw2VSDfJRiQvO_tIHtS6G35YVyA/exec">Subir Archivo</a>
+        <a class="subir-archivo" href="https://script.google.com/macros/s/AKfycbyR87rbWn3MVeENFe7lmLW_EE-HrQoElxfbBJtwBHgRRZ-iRhJwrnu8zTv5S-9JDR3TaA/exec">Subir Archivo</a>
+        <p id="output" style="color:white;">asdfsadf</p>
     </nav>
     <main class="main">
         <h1 class="main-titulo">Archivos Fiuba</h1>
@@ -80,7 +81,14 @@
                 <p>ver</p>
             </a>
         </div>
+
     </main>
+    <script>
+        let message = location.hash;
+        message = message.substring(1); // strip off leading #
+        message = decodeURI(message); // get rid of %20 for spaces
+        output.innerHTML = message;
+    </script>
     <script src="script.js"></script>
 </body>
 

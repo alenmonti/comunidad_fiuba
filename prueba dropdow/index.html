@@ -1,37 +1,16 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Dropdown Menu</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <nav class="sidebar">
-      <ul class="menu">
-        <li class="menu-item">
-          <a href="#">Home</a>
-        </li>
-        <li class="menu-item">
-          <a href="#">About</a>
-        </li>
-        <li class="menu-item dropdown">
-          <a href="#">Dropdown</a>
-          <ul class="submenu">
-            <li><a href="#">Option 1</a></li>
-            <li><a href="#">Option 2</a></li>
-            <li><a href="#">Option 3</a></li>
-          </ul>
-        </li>
-        <li class="menu-item">
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
-    <main>
-      <h1>Welcome to my website</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </main>
-
-    <script src="script.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Page 1</title>
+    </head>
+    <body>
+        <input id="txtMessage" type="text" value="Hello">
+        <button id="btnSend">Send</button>
+        <script>
+            btnSend.onclick = () => {
+                const message = txtMessage.value || "No message defined";
+                window.location = "index2.html#" + message;
+            };
+        </script>
+    </body>
 </html>

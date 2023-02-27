@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Page 2</title>
+    </head>
+    <body>
+        <h2>The message is ...</h2>
+        <p id="output"></p>
+        <script>
+            let message = location.hash;
+            message = message.substring(1); // strip off leading #
+            message = decodeURI(message); // get rid of %20 for spaces
+            output.innerHTML = message;
+        </script>
+    </body>
+</html>
