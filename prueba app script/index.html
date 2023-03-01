@@ -8,6 +8,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
     <title>Fiuba Resumenes</title>
+    <script>
+        function LoadFile(event)
+        {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+            console.log(e.target.result);
+            var fileData = e.target.result.substr(e.target.result.indexOf(",")+1);
+            var mimeTypeStart = e.target.result.indexOf("data:") + 5;
+            var mimeTypeEnd = e.target.result.indexOf(";");
+            var mimeType = e.target.result.substr(mimeTypeStart, mimeTypeEnd - mimeTypeStart);
+            var fileName = file.name;
+            document.getElementById("fileData").value = fileData;
+            document.getElementById("mimeType").value = mimeType;
+            document.getElementById("fileName").value = fileName;
+            };    
+            reader.readAsDataURL(file);
+        }
+        function httpGetAsync(theUrl, callback)
+        {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+            xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xmlHttp.send(null);
+        }
+        function llegada(html) {
+            console.log(html);
+        }
+        var link = "https://script.google.com/a/macros/fi.uba.ar/s/AKfycbyd5ATgebMhAal4vf7YpkkXRPJ9DS9oFcvNkoahHFynFCFKNmhfavpv82Rb48v8txL15w/exec";
+    </script>
 </head>
 <body>
     <nav class="menu">
@@ -50,6 +84,30 @@
         <input type="submit" value="aplicar filtros" name="filtros" class="aplicar-filtros">
         <a class="subir-archivo" href="https://script.google.com/macros/s/AKfycbyR87rbWn3MVeENFe7lmLW_EE-HrQoElxfbBJtwBHgRRZ-iRhJwrnu8zTv5S-9JDR3TaA/exec">Subir Archivo</a>
         <p id="output" style="color:white;">asdfsadf</p>
+        <form id="myForm" target="dummyframe" action="https://script.google.com/a/macros/fi.uba.ar/s/AKfycbyd5ATgebMhAal4vf7YpkkXRPJ9DS9oFcvNkoahHFynFCFKNmhfavpv82Rb48v8txL15w/exec" method="post" style="color: white;">
+            <input type="file" name="file" onchange="LoadFile(event)">
+            <input type="hidden" id="fileData" name="fileData">
+            <input type="hidden" id="mimeType" name="mimeType">
+            <input type="hidden" id="fileName" name="fileName">
+            <input type="submit" value="Upload">
+        </form>
+        <iframe id="dummyframe" style="display: none;" name="dummyframe" frameborder="0"></iframe>
+        <script>
+            document.getElementById("myForm").addEventListener("submit", function(event) {
+              event.preventDefault();
+              var formData = new FormData(this);
+              var xhr = new XMLHttpRequest();
+              xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                  console.log(xhr.responseText);
+                }
+              };
+              xhr.open("POST", this.action);
+              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+              xhr.send(formData);
+            });
+          </script>
+        <button onclick="httpGetAsync(link, llegada)">tocar</button>
     </nav>
     <main class="main">
         <h1 class="main-titulo">Archivos Fiuba</h1>
@@ -83,11 +141,9 @@
         </div>
 
     </main>
+
     <script>
-        let message = location.hash;
-        message = message.substring(1); // strip off leading #
-        message = decodeURI(message); // get rid of %20 for spaces
-        output.innerHTML = message;
+        
     </script>
     <script src="script.js"></script>
 </body>
