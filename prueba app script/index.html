@@ -6,42 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css%22%3E">
     <title>Fiuba Resumenes</title>
-    <script>
-        function LoadFile(event)
-        {
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function(e) {
-            console.log(e.target.result);
-            var fileData = e.target.result.substr(e.target.result.indexOf(",")+1);
-            var mimeTypeStart = e.target.result.indexOf("data:") + 5;
-            var mimeTypeEnd = e.target.result.indexOf(";");
-            var mimeType = e.target.result.substr(mimeTypeStart, mimeTypeEnd - mimeTypeStart);
-            var fileName = file.name;
-            document.getElementById("fileData").value = fileData;
-            document.getElementById("mimeType").value = mimeType;
-            document.getElementById("fileName").value = fileName;
-            };    
-            reader.readAsDataURL(file);
-        }
-        function httpGetAsync(theUrl, callback)
-        {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function() { 
-                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                    callback(xmlHttp.responseText);
-            }
-            xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-            xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xmlHttp.send(null);
-        }
-        function llegada(html) {
-            console.log(html);
-        }
-        var link = "https://script.google.com/a/macros/fi.uba.ar/s/AKfycbyd5ATgebMhAal4vf7YpkkXRPJ9DS9oFcvNkoahHFynFCFKNmhfavpv82Rb48v8txL15w/exec";
-    </script>
 </head>
 <body>
     <nav class="menu">
@@ -81,41 +47,24 @@
                 </ul>
             </li>
         </ul>
-        <input type="submit" value="aplicar filtros" name="filtros" class="aplicar-filtros">
-        <a class="subir-archivo" href="https://script.google.com/macros/s/AKfycbyR87rbWn3MVeENFe7lmLW_EE-HrQoElxfbBJtwBHgRRZ-iRhJwrnu8zTv5S-9JDR3TaA/exec">Subir Archivo</a>
-        <p id="output" style="color:white;">asdfsadf</p>
-        <form id="myForm" target="dummyframe" action="https://script.google.com/a/macros/fi.uba.ar/s/AKfycbyd5ATgebMhAal4vf7YpkkXRPJ9DS9oFcvNkoahHFynFCFKNmhfavpv82Rb48v8txL15w/exec" method="post" style="color: white;">
-            <input type="file" name="file" onchange="LoadFile(event)">
+        <form id="myForm" target="dummyframe" action="" method="post" style="color: white;">
+            <input type="file" name="file" onchange="LoadFile(event)" accept="image/png, image/jpeg, application/pdf">
             <input type="hidden" id="fileData" name="fileData">
             <input type="hidden" id="mimeType" name="mimeType">
             <input type="hidden" id="fileName" name="fileName">
-            <input type="submit" value="Upload">
+            <input type="submit" value="Upload" onclick="alertTermino()">
         </form>
         <iframe id="dummyframe" style="display: none;" name="dummyframe" frameborder="0"></iframe>
-        <script>
-            document.getElementById("myForm").addEventListener("submit", function(event) {
-              event.preventDefault();
-              var formData = new FormData(this);
-              var xhr = new XMLHttpRequest();
-              xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                  console.log(xhr.responseText);
-                }
-              };
-              xhr.open("POST", this.action);
-              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-              xhr.send(formData);
-            });
-          </script>
-        <button onclick="httpGetAsync(link, llegada)">tocar</button>
+        <button onclick="httpGetAsync()">links</button>
     </nav>
     <main class="main">
         <h1 class="main-titulo">Archivos Fiuba</h1>
         <div class="subrrayado"></div>
         <h3>Página para ver archivos útiles relacionados con la Facultad de Ingeniería, subidos por alumnos de todo el país.</h3>
         <div class="archivos">
-            <a href="https://docs.google.com/spreadsheets/d/1FLi6COzWUOSo27JmIrLt6FKBzXWsQYJOkipO42jQHfY/edit#gid=0" class="archivo">
-                <embed src="https://docs.google.com/spreadsheets/d/1FLi6COzWUOSo27JmIrLt6FKBzXWsQYJOkipO42jQHfY/edit#gid=0" type="application/pdf" class="embed"/>
+            
+            <a href="https://drive.google.com/file/d/19Erxq3HwAPIVQA9RcA9le-z6KWisM7rD/preview" class="archivo">
+                <iframe src="https://drive.google.com/file/d/19Erxq3HwAPIVQA9RcA9le-z6KWisM7rD/preview" class="embed" allow="autoplay"></iframe>
                 <p>ver</p>
             </a>
             <a href="bases.pdf" class="archivo">
@@ -126,12 +75,60 @@
                 <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
                 <p>ver</p>
             </a>
-            <a href="https://drive.google.com/file/d/1GTNckErQrdE9oKISmqcry8XtU6cqOnPb/view?usp=share_link" class="archivo">
-                <embed src="https://drive.google.com/file/d/1GTNckErQrdE9oKISmqcry8XtU6cqOnPb" type="application/pdf" class="embed"/>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
                 <p>ver</p>
             </a>
-            <a href="https://drive.google.com/file/d/1GRbSY2eh3VL9mPJ5wsNlfFVKJx6Q4Wf1/view?usp=share_link" class="archivo">
-                <embed src="https://drive.google.com/file/d/1GRbSY2eh3VL9mPJ5wsNlfFVKJx6Q4Wf1/view?usp=share_link" type="application/pdf" class="embed"/>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="bases.pdf" class="archivo">
+                <embed src="bases.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="bases.pdf" class="archivo">
+                <embed src="bases.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="bases.pdf" class="archivo">
+                <embed src="bases.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="bases.pdf" class="archivo">
+                <embed src="bases.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
+                <p>ver</p>
+            </a>
+            <a href="ejercicio.pdf" class="archivo">
+                <embed src="ejercicio.pdf" type="application/pdf" class="embed"/>
                 <p>ver</p>
             </a>
             <a href="bases.pdf" class="archivo">
@@ -141,10 +138,6 @@
         </div>
 
     </main>
-
-    <script>
-        
-    </script>
     <script src="script.js"></script>
 </body>
 
