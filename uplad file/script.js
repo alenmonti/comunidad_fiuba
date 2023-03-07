@@ -1,7 +1,7 @@
 const dropArea = document.querySelector(".drag-area"),
 dragText = dropArea.querySelector("header"),
-button = dropArea.querySelector("button"),
-input = dropArea.querySelector("input");
+button = document.querySelector("button"),
+input = document.querySelector("input");
 
 button.onclick = ()=>{
   input.click();
@@ -15,6 +15,9 @@ function addFileAndShowSubmit(file){
 
   const submit = document.getElementById("submit");
   submit.classList.add("visible");
+  dropArea.style.display = 'none';
+  form = document.querySelector("form");
+  form.style.display = "flex";
 }
 
 input.addEventListener("change", function(){
@@ -49,11 +52,46 @@ dropArea.addEventListener("drop", (event)=>{
   dragText.textContent = "Arrastra y suelta para subir un archivo";
 
   let fileList = document.getElementById('fileList');
+  let archivoCargado = document.getElementById('archivoCargado');
 
   // Remove any existing items from the list
   fileList.innerHTML = '';
 
   // Add the new file to the list
   let file = event.dataTransfer.files[0];
+  archivoCargado.files = event.dataTransfer.files;
   addFileAndShowSubmit(file);
 });
+
+function LoadFile(event)
+{
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+    console.log(e.target.result);
+    const fileData = e.target.result.substr(e.target.result.indexOf(",")+1);
+    const mimeTypeStart = e.target.result.indexOf("data:") + 5;
+    const mimeTypeEnd = e.target.result.indexOf(";");
+    const mimeType = e.target.result.substr(mimeTypeStart, mimeTypeEnd - mimeTypeStart);
+    const fileName = file.name;
+    document.getElementById("fileData").value = fileData;
+    document.getElementById("mimeType").value = mimeType;
+    document.getElementById("fileName").value = fileName;
+    };    
+    reader.readAsDataURL(file);
+}
+const link = "https://script.google.com/macros/s/AKfycbyvPdtaJ3iXDd9QqOw-NOvfiSHvuFfqzsTqlehylwDEhVNo3Sbac8YvmeQ8YMOj7F4X/exec";
+document.getElementById("myForm").setAttribute("action", link);
+
+const httpGetAsync = () =>
+    {const theUrl = link;
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+                alert(xmlHttp.responseText);
+        }
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+
+

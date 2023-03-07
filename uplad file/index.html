@@ -14,16 +14,42 @@
     <header>Arrastra y suelta para subir un archivo</header>
     <p>O</p>
     <button>Buscar Archivo</button>
-    <ul id="fileList"></ul>
-    <form action="">
-      <input type="file" onchange="LoadFile(event)" accept="image/png, image/jpeg, application/pdf" hidden>
-      <input type="hidden" id="fileData" name="fileData">
-      <input type="hidden" id="mimeType" name="mimeType">
-      <input type="hidden" id="fileName" name="fileName">
-      <input type="submit" value="Submit" class="submit" id="submit">
-    </form>
-    
   </div>
+  <ul id="fileList"></ul>
+  <form action="">
+    <input type="file" onchange="LoadFile(event)" accept="image/png, image/jpeg, application/pdf" id="archivoCargado">
+    <input type="hidden" id="fileData" name="fileData">
+    <input type="hidden" id="mimeType" name="mimeType">
+    <input type="hidden" id="fileName" name="fileName">
+    <input type="text" placeholder="Nombre" required>
+    <input type="text" list="materias" placeholder="Materia" required>
+    <datalist id="materias">
+      <option value="analisis"></option>
+      <option value="fisica"></option>
+      <option value="quimica"></option>
+    </datalist>
+    <input type="text" list="cuatrimestre" placeholder="Cuatrimestre" required>
+    <datalist id="cuatrimestre">
+      <option value="Primer Cuatrimestre"></option>
+      <option value="Segundo Cuatrimestre"></option>
+    </datalist>
+    <input type="text" list="año" placeholder="Año" required>
+    <datalist id="año">
+      <option value="2023"></option>
+      <option value="2022"></option>
+      <option value="2021"></option>
+      <option value="2020"></option>
+      <option value="2019"></option>
+      <option value="2018"></option>
+    </datalist>
+    <input type="text" list="tipo de archivo" placeholder="Tipo de Archivo" required>
+    <datalist id="tipo de archivo">
+      <option value="Examen"></option>
+      <option value="Resumen"></option>
+      <option value="Parcial"></option>
+    </datalist>
+    <input type="submit" value="Submit" class="submit" id="submit">
+  </form>
 
   <script src="script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
