@@ -16,7 +16,7 @@ function addFileAndShowSubmit(file){
   const submit = document.getElementById("submit");
   submit.classList.add("visible");
   dropArea.style.display = 'none';
-  form = document.querySelector("form");
+  form = document.querySelector(".formAndList");
   form.style.display = "flex";
 }
 
@@ -58,8 +58,9 @@ dropArea.addEventListener("drop", (event)=>{
   fileList.innerHTML = '';
 
   // Add the new file to the list
-  let file = event.dataTransfer.files[0];
   archivoCargado.files = event.dataTransfer.files;
+
+  let file = event.dataTransfer.files[0];
   addFileAndShowSubmit(file);
 });
 
