@@ -1,33 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 body{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url("fondo3.jpg");
+  background-size: cover;
 }
 
-.dropzone {
-    width: 400px;
-    height: 200px;
-    border: 2px dashed gray;
-    text-align: center;
-    font-size: 20px;
-    color: gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(0, 80, 75);
-  }
-  
-  ul {
+.drag-area{
+  border: 2px dashed #fff;
+  height: 500px;
+  width: 700px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.drag-area.active{
+  border: 2px solid #fff;
+}
+.drag-area .icon{
+  font-size: 100px;
+  color: #fff;
+}
+.drag-area header{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+}
+.drag-area p{
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin: 10px 0 15px 0;
+}
+
+.drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid white;
+  outline: none;
+  background: #5a121270;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+ul {
     margin-top: 20px;
     padding-left: 0;
     list-style-type: none;
   }
   
-  li {
+li {
     margin: 5px 0;
     font-size: 16px;
-    color: gray;
+    color:#ffffff;
+    background-color: rgba(90, 18, 18, 0.7);
+    padding: 5px;
+    border-radius: 3px;
   }
-  
+
+.submit {
+    display: none;
+    position:absolute;
+    padding: 5px 15px 5px 15px;
+    border-radius: 3px;
+    border: 1px solid white;
+    background: transparent;
+    width: 300px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 3px;
+    font-size: 2em;
+    color:#fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.submit.visible {
+    display: inline-block;
+}
+
+.submit.visible:hover {
+    background:#5a12125b;
+    letter-spacing: 10px;
+}
