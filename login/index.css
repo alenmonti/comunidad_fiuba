@@ -82,7 +82,7 @@ fieldset ion-icon{
     color: #c9c6c6;
 }
 
-button{
+.submit{
     width: 100%;
     height: 40px;
     border-radius: 40px;
@@ -91,11 +91,11 @@ button{
     outline: none;
     cursor: pointer;
     font-size: 1em;
-    margin-top: 20px;
+    margin-top: 5px;
     transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+.submit:hover {
     background-color: #fff;
     transform: scale(1.05);
 }
