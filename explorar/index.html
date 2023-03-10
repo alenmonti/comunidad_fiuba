@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Comunidad Fiuba</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
 </head>
 <body>
     <div class="container">
@@ -14,12 +14,16 @@
             <div class="izq">
                 <a href="#inicio">Inicio</a>
                 <a href="#contenido">Contenido</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#top">Top</a>
             </div>
             <div class="der">
                 <a href="uploadFile.html" class="link-container">
                     <p>Subir Archivo</p>
                     <ion-icon name="cloud-upload-outline"></ion-icon>
+                </a>
+                <a href="perfil.html" class="link-container">
+                    <p>Perfil</p>
+                    <ion-icon name="person-outline"></ion-icon>
                 </a>
                 <a href="login.html" class="link-container">
                     <p>LogOut</p>
@@ -31,18 +35,9 @@
         <div class="fiubaImagen" id="inicio">
             <h1 class="main-titulo">Comunidad Fiuba</h1>
             <div class="subrrayado"></div>
-            <p>Página para ver archivos útiles relacionados con la Facultad de Ingeniería, subidos por alumnos de todo el país.</p>
+            <p class="header-descripcion">Página para ver archivos útiles relacionados con la Facultad de Ingeniería, subidos por alumnos de todo el país.</p>
         </div>
         <div class="filter-wrapper" id="contenido">
-            <div class="select-container">
-                <ion-icon name="chevron-down-outline"></ion-icon>
-                <select id="category">
-                    <option value="">Materia</option>
-                    <option value="food">Analisis</option>
-                    <option value="travel">Fisica</option>
-                    <option value="music">Ingles</option>
-                </select>
-            </div>
             <div class="select-container">
                 <ion-icon name="chevron-down-outline"></ion-icon>
                 <select id="category">
@@ -54,20 +49,31 @@
             </div>
             <div class="select-container">
                 <ion-icon name="chevron-down-outline"></ion-icon>
-                <select id="category">
-                    <option value="">Año</option>
-                    <option value="food">2023</option>
-                    <option value="travel">2022</option>
-                    <option value="music">2021</option>
-                </select>
+                <input type="text" list="materia" placeholder="Materia" class="filter-input">
+                <datalist id="materia">
+                  <option value="Analisi"></option>
+                  <option value="Algoritmos"></option>
+                  <option value="Fisica"></option>
+                  <option value="Quimica"></option>
+                  <option value="Probabilidad"></option>
+                  <option value="Ingles"></option>
+                </datalist>
             </div>
             <div class="select-container">
                 <ion-icon name="chevron-down-outline"></ion-icon>
-                <select id="category">
-                    <option value="">Cuatri</option>
-                    <option value="food">1c</option>
-                    <option value="travel">2c</option>
-                </select>
+                <input type="text" list="año" placeholder="Año" class="filter-input">
+                <datalist id="año">
+                    <option value="2023"></option>
+                    <option value="2022"></option>
+                    <option value="2021"></option>
+                    <option value="2020"></option>
+                    <option value="2019"></option>
+                    <option value="2018"></option>
+                </datalist>
+            </div>
+            <div class="select-container c1-c2">
+                <button class="c1-c2-boton">1c</button>
+                <button class="c1-c2-boton">2c</button>
             </div>
             <div class="buscador">
                 <ion-icon name="search-outline"></ion-icon>
@@ -94,41 +100,24 @@
             <div class="content travel">Exotic travel location</div>
             <div class="content music">Classic rock concert</div>
         </div>
-        <section class="contact-section">
-            <div class="contact-section-header">
-                <h2>Muchas gracias por tu tiempo</h2>
-                <p></p>
+        <section class="top-section">
+            <div class="top-section-header">
+                <h2>Top creadores más likeados</h2>
             </div>
-            <div class="contact-links">
-                <a href="https://facebook.com" target="_blank" class="btn contact-details">
-                    <i class="fab fa-facebook-square"></i>
-                    Facebook
-                </a>
-                <a id="profile-link" href="https://github.com/alenmonti" target="_blank" class="btn contact-details">
-                    <i class="fab fa-github"></i>
-                    GitHub
-                </a>
-                <a href="https://twitter.com" target="_blank" class="btn contact-details">
-                    <i class="fab fa-twitter"></i>
-                    Twitter
-                </a>
-                <a href="https://www.google.com/intl/es-419/gmail/about/" class="btn contact-details" target="_blank">
-                    <i class="fas fa-at"></i>
-                    Email
-                </a>
-                <a href="tel:555-555-5555" class="btn contact-details">
-                    <i class="fas fa-mobile-alt"></i>
-                    WhatsApp
-                </a>
-            </div>
+            <ol class="top-list">
+                <li><ion-icon name="trophy-outline"></ion-icon><span>Alen Monti</span></li>
+                <li><ion-icon name="trophy-outline"></ion-icon><span>Alen Piola</span></li>
+                <li><ion-icon name="trophy-outline"></ion-icon><span>Alen Smurf</span></li>
+            </ol>
         </section>
 
-        <footer id="contacto">
+        <footer id="top">
             <p>&copy; 2023. Todos los derechos reservados.</p>
             <p>Creado por Andres Melic y Alen Monti, estudiantes de ingeniería <i class="fas fa-laptop-code"></i></p>
         </footer>
     </div>
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://kit.fontawesome.com/7dfd85fbb7.js" crossorigin="anonymous"></script>
 </body>
 </html>
