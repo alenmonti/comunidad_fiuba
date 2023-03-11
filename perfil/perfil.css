@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+:root {
+    --blanco: #fff;
+}
+
+body {
+    margin: 0;
+}
+
+.pagina{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url("fiubaRojo.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'poppins',sans-serif;
+}
+
+.contenedor{
+    position: relative;
+    width: 400px;
+    height: 460px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+    backdrop-filter: blur(7px);
+    background-color: rgba(255, 255, 255, 0.164);
+}
+
+
+h2{
+    font-size: 2em;
+    color: var(--blanco);
+    text-align: center;
+    margin: 30px;
+    letter-spacing: 5px;
+}
+
+
+.usuario-dato{
+    position: relative;
+    margin: 30px 0;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid var(--blanco);
+    color: var(--blanco);
+    font-size: 1.1em;
+}
+
+
+.usuario-dato ion-icon{
+    font-size: 1.2em;
+    margin: 0 10px;
+}
+
+.big-icon {
+    font-size: 6em;
+    color: white;
+}
+
+
+::placeholder {
+    opacity: 1;
+    color: #c9c6c6;
+}
+
+.submit{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 40px;
+    transition: all 0.2s ease-in-out;
+}
+
+.submit:hover {
+    background-color: var(--blanco);
+    transform: scale(1.05);
+}
+
+.link-cambiar-contraseña{
+    font-size: .9em;
+    text-align: center;
+    margin: 25px 0 15px;
+}
+
+.link-cambiar-contraseña a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+.link-cambiar-contraseña a:hover{
+    text-decoration: underline;
+}
+
+fieldset{
+    position: relative;
+    margin: 60px 0;
+    width: 310px;
+    border: none;
+    border-bottom: 1px solid var(--blanco);
+    padding: 0;
+}
+
+fieldset input {
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 0 0 10px;
+    color: var(--blanco);
+}
+
+fieldset ion-icon{
+    position: absolute;
+    right: 8px;
+    color: var(--blanco);
+    font-size: 1.2em;
+    top: 12px;
+}
