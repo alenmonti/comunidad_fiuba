@@ -19,7 +19,8 @@ body{
 .drag-area{
   border: 2px dashed #fff;
   height: 500px;
-  width: 700px;
+  width: 90%;
+  max-width: 700px;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -34,6 +35,7 @@ body{
   color: #fff;
 }
 .drag-area header{
+  text-align: center;
   font-size: 25px;
   font-weight: 500;
   color: #fff;
@@ -61,42 +63,46 @@ ul {
     margin-top: 30px;
     padding-left: 0;
     list-style-type: none;
-  }
+}
   
 li {
-    margin: 5px 0;
-    font-size: 16px;
-    color:#ffffff;
-    background-color: rgba(90, 18, 18, 0.7);
-    padding: 5px;
-    border-radius: 3px;
-  }
+  text-align: center;
+  margin: 5px 0;
+  font-size: 16px;
+  color:#ffffff;
+  background-color: rgba(90, 18, 18, 0.7);
+  padding: 5px;
+  border-radius: 3px;
+}
+
 
 .submit {
-    display: none;
-    padding: 5px 15px 5px 15px;
-    border-radius: 3px;
-    border: 1px solid white;
-    background: transparent;
-    width: 300px;
-    top: 50px;
-    left: 50%;
-    letter-spacing: 3px;
-    font-size: 2em;
-    color:#fff;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  display: none;
+  padding: 5px 15px 5px 15px;
+  border-radius: 3px;
+  border: 1px solid white;
+  background: transparent;
+  width: 300px;
+  top: 50px;
+  left: 50%;
+  letter-spacing: 3px;
+  font-size: 2em;
+  color:#fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 
 .submit.visible {
-    display: inline-block;
-    margin: 30px;
+  max-width: 300px;
+  width: 80%;
+  display: inline-block;
+  margin: 30px;
 }
 
 .submit.visible:hover {
-    background:#5a12125b;
-    letter-spacing: 10px;
+  background:#5a12125b;
+  letter-spacing: 10px;
 }
 
 #archivoCargado {
@@ -118,6 +124,8 @@ form {
   display: none;
   flex-direction: column;
   gap: 20px;
+  max-width: 420px;
+  width: 90%;
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.164);
   padding: 30px;
